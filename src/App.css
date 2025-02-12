@@ -1,0 +1,122 @@
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Root Container */
+#root {
+  max-width: min(960px, 90vw); /* Fluid container width */
+  margin: 0 auto;
+  padding: clamp(1rem, 5vw, 2rem); /* Fluid padding */
+  text-align: center;
+  background-color: rgba(240, 240, 240, 1);
+  border-radius: clamp(10px, 2vw, 20px); /* Fluid border radius */
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  animation: pulse-bg 6s infinite alternate;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Logo Styling */
+.logo {
+  height: clamp(3em, 10vw, 7em); /* Fluid logo size */
+  padding: clamp(1rem, 3vw, 2rem);
+  will-change: filter;
+  transition: all 0.5s ease-out;
+  filter: drop-shadow(0 0 3em rgba(0, 0, 0, 0.6));
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2.5em rgba(0, 0, 0, 0.6));
+  transform: scale(1.1) rotate(15deg);
+  animation: logo-hover 1s forwards;
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 3em rgba(0, 0, 0, 0.6));
+  transform: scale(1.1) rotate(-15deg);
+}
+
+/* Card Styling */
+.card {
+  padding: clamp(1.5em, 4vw, 2.5em); /* Fluid padding */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: clamp(10px, 2vw, 20px);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin: clamp(0.5rem, 2vw, 1rem) 0; /* Fluid margins */
+}
+
+/* Typography Scale */
+:root {
+  --font-size-sm: clamp(0.8rem, 1.5vw, 1rem);
+  --font-size-base: clamp(1rem, 2vw, 1.2rem);
+  --font-size-lg: clamp(1.2rem, 2.5vw, 1.5rem);
+  --font-size-xl: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Responsive Typography */
+h1 { font-size: var(--font-size-xl); }
+h2, h3 { font-size: var(--font-size-lg); }
+p { font-size: var(--font-size-base); }
+.read-the-docs { font-size: var(--font-size-sm); }
+
+/* Read the Docs Styling */
+.read-the-docs {
+  color: #333;
+  padding: clamp(0.8em, 2vw, 1.2em);
+  border-radius: clamp(8px, 1.5vw, 12px);
+  background: rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease-out;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  margin: clamp(1rem, 3vw, 2rem) auto; /* Fluid margins */
+  max-width: min(100%, 600px); /* Constrain width */
+}
+
+/* Breakpoint-specific adjustments */
+@media (max-width: 480px) {
+  .card:hover {
+    transform: translateY(-4px) rotate(2deg); /* Reduced motion */
+  }
+  
+  .logo:hover {
+    transform: scale(1.05) rotate(10deg); /* Reduced motion */
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2); /* Lighter shadow */
+  }
+  
+  .card {
+    padding: 1.25em;
+  }
+}
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .logo:hover,
+  .card:hover,
+  .read-the-docs:hover {
+    transform: none;
+  }
+}
+
+/* Original animations */
+@keyframes logo-hover {
+  0% { transform: scale(1.1) rotate(15deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  to { transform: rotate(360deg) scale(1); }
+}
