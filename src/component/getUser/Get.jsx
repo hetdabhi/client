@@ -11,7 +11,7 @@ const User = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://mern-crud-1huy.onrender.com/api/getall`);
+        const response = await axios.get(`https://server-cj3x.onrender.com/api/getall`);
         toast.success("User fetched successfully");
         setUsers(response.data);
       } catch (error) {
@@ -24,7 +24,7 @@ const User = () => {
 
   const deleteUser = async (userId) => {
     try {
-      await axios.delete(`https://mern-crud-1huy.onrender.com/api/delete/${userId}`);
+      await axios.delete(`https://server-cj3x.onrender.com/api/delete/${userId}`);
       setUsers((prevUsers) => prevUsers.filter((user) => user._id !== userId));
       toast.success("User Deleted successfully!");
     } catch (error) {
