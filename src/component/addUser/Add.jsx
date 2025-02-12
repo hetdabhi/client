@@ -18,7 +18,7 @@ const AddUser = () => {
   useEffect(() => {
     if (id) {
       console.log(`Fetching user data for id: ${id}`);
-      axios.get(`https://mern-crud-1huy.onrender.com/api/finduser/${id}`)
+      axios.get(https://server-yd59.onrender.com/api/finduser/${id}`)
         .then(response => {
           console.log("User data fetched successfully:", response.data);
           setUser(response.data);
@@ -39,7 +39,7 @@ const AddUser = () => {
     e.preventDefault();
     console.log("Submitting form with user data:", user);
     if (id) {
-      axios.put(`https://mern-crud-1huy.onrender.com/api/update/${id}`, user)
+      axios.put(`https://server-yd59.onrender.com/api/update/${id}`, user)
         .then(response => {
           console.log("User updated successfully:", response.data);
           toast.success("User updated successfully");
@@ -50,7 +50,7 @@ const AddUser = () => {
           toast.error("Failed to update user");
         });
     } else {
-      axios.post("https://mern-crud-1huy.onrender.com/api/create", user)
+      axios.post("https://server-yd59.onrender.com/api/create", user)
         .then(response => {
           console.log("User created successfully:", response.data);
           toast.success("User created successfully");
